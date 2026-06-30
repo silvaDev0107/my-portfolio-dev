@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f3f4f4;
+  --surface: #f8fafc;
+  --accent: #7aaace;
+  --accent-opacity: #7aaace50;
+  --text: #1b211a;
+  --text-secondary: #39b1d1;
+  --surface-card: #e8edf2;
+  --stronger: #0a2947;
+}
+
+html.dark {
+  --bg: #2C3947;
+  --surface: #f8fafc;
+  --accent: #7aaace;
+  --accent-opacity: #7aaace50;
+  --text: #FFF6F6;
+  --text-secondary: #39b1d1;
+  --surface-card: #e8edf2;
+  --stronger: #1591DC;
+}
+
+@theme {
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-opacity-50: var(---accent-opacity);
+  --color-accent-stronger: var(--stronger);
+  --color-text: var(--text);
+  --color-bg-card: var(--surface-card);
+  --color-text-secondary: var(--text-secondary);
+}
+
+li {
+  list-style: none;
+}

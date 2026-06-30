@@ -1,0 +1,64 @@
+---
+import ItemNav from "../components/ItemNav.astro";
+import ToogleTheme from "@/components/ToogleTheme.astro";
+import LinkedIn from "@/components/icons/LinkedIn.astro";
+import GitHub from "@/components/icons/GitHub.astro";
+import Mail from "@/components/icons/Mail.astro";
+---
+
+<header class="bg-background w-full h-18 fixed z-20 top-0 py-4 border-b-[1px] border-b-neutral-400">
+  <nav class="max-w-6xl mx-auto flex justify-center items-center">
+    <div id="links">
+      <ul class="flex flex-wrap gap-2">
+        <li>
+          <a
+            href="https://www.linkedin.com/in/silvadev13"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ir a perfil de linkedin"
+            title="Perfil de linkedin"
+          >
+            <LinkedIn class="size-6" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://github.com/silvaDev0107"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ir a perfil de GitHub"
+            title="Perfil de GitHub"
+          >
+            <GitHub class="size-6" />
+          </a>
+        </li>
+        <li>
+          <a href="mailto:asilvac0107@gmail.com" title="Contactame por correo">
+            <Mail class="size-6" />
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <nav class="px-2 rounded-full w-fit mx-auto">
+      <ul class="flex justify-center gap-3">
+        <ItemNav ref="projects">Proyectos</ItemNav>
+        <ItemNav ref="experiencia">Experiencia</ItemNav>
+        <ItemNav ref="about-me">Sobre mi</ItemNav>
+      </ul>
+    </nav>
+
+    <ToogleTheme />
+  </nav>
+</header>
+
+<style>
+  li {
+    transition: transform 0.2s ease;
+  }
+
+  li:hover {
+    transform: translateY(-2px);
+  }
+</style>
+

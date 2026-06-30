@@ -1,0 +1,19 @@
+---
+import ProjectCard from "@/components/ProjectCard.astro";
+import sistemaCarnet from "@/images/sistema-carnets.png";
+import Section from "@/components/Section.astro";
+
+const description = "Sistema para realizar registros de carnets y certificados de manipulación de alimentos, permite acciones CRUD y cargar documentos en formato PDF"
+---
+
+<Section id="projects" title="Mis Proyectos">
+
+    <div class="grid-projects grid grid-cols-1">
+        <ProjectCard 
+            title="Sistema Gestión de Carnets M.A"
+            img={sistemaCarnet}
+            technologyes={["nextjs", "tailwindcss", "shadcn", "python", "django", "postgresql"]}
+            description={description}
+        />
+    </div>
+</Section>

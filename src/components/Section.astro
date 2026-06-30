@@ -1,0 +1,22 @@
+---
+
+interface SectionProps {
+    id: string;
+    title: string;
+}
+
+const { title, id} = Astro.props as SectionProps;
+
+---
+
+<section class="mt-4" id={id}>
+    <h2 class="text-2xl font-bold mb-2">{title}</h2>
+    <div class="mb-5 h-px w-20 bg-linear-to-r from-accent-stronger to-transparent" aria-hidden="true"></div>
+    <slot/>
+</section>
+
+<style>
+    section {
+        scroll-margin-top: 6rem;
+    }
+</style>

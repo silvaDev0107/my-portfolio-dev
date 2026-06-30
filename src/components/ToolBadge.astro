@@ -1,0 +1,34 @@
+---
+import React from "./icons/React.astro";
+import Nextjs from "./icons/Nextjs.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import Shadcn from "./icons/Shadcn.astro";
+import Python from "./icons/Python.astro";
+import Postgres from "./icons/Postgres.astro";
+import Django from "./icons/Django.astro";
+
+interface ToolBadgeProps {
+  tech: keyof typeof icons;
+}
+
+const icons = {
+  react: React,
+  nextjs: Nextjs,
+  tailwindcss: Tailwind,
+  shadcn: Shadcn,
+  python: Python,
+  postgresql: Postgres,
+  django: Django
+};
+
+const { tech } = Astro.props as ToolBadgeProps;
+
+const Icon = icons[tech];
+---
+
+<li
+  class="px-2 py-0.5 bg-slate-50 border-[1px] font-mono text-black text-xs border-slate-400 rounded-full capitalize flex items-center gap-1"
+>
+  <Icon class="size-5"/>
+  {tech}
+</li>

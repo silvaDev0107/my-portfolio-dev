@@ -1,0 +1,60 @@
+<button
+  id="theme-toggle"
+  aria-label="Cambiar tema"
+  class="relative w-14 h-7 rounded-full bg-gray-200 dark:bg-[#BFC9D1] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+>
+  <span
+    id="toggle-thumb"
+    class="absolute top-1 left-1 w-5 h-5 rounded-full bg-white shadow-md transition-transform duration-300 flex items-center justify-center text-xs"
+  >
+    <svg
+      id="icon-sun"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-4 h-4 text-yellow-500"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M12 3v1m0 16v1m8.66-9h-1M4.34 12h-1m15.07-6.07-.71.71M6.34 17.66l-.71.71m12.73 0-.71-.71M6.34 6.34l-.71-.71M12 7a5 5 0 100 10A5 5 0 0012 7z"
+      ></path>
+    </svg>
+    <!-- Ícono luna -->
+    <svg
+      id="icon-moon"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-4 h-4 text-blue-300 hidden"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"></path>
+    </svg>
+  </span>
+</button>
+
+<script is:inline>
+  const toggle = document.getElementById("theme-toggle");
+  const thumb = document.getElementById("toggle-thumb");
+  const iconSun = document.getElementById("icon-sun");
+  const iconMoon = document.getElementById("icon-moon");
+
+  function applyTheme(isDark) {
+    document.documentElement.classList.toggle("dark", isDark);
+    thumb.style.transform = isDark ? "translateX(28px)" : "translateX(0)";
+    iconSun.classList.toggle("hidden", isDark);
+    iconMoon.classList.toggle("hidden", !isDark);
+    localStorage.setItem("them", isDark ? "dark" : "light");
+  }
+
+  const saved = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(saved === "dark" || (!saved && prefersDark));
+
+  toggle.addEventListener("click", () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    applyTheme(!isDark);
+  })
+</script>

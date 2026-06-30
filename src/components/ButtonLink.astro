@@ -1,0 +1,34 @@
+---
+interface ButtonLinkProps {
+    text: string,
+    ref: string,
+    id: string,
+    download: boolean,
+}
+
+const {text, ref, id, download } = Astro.props as ButtonLinkProps;
+---
+
+<a
+  id={id}
+  href={ref}
+  download={download}
+  class={`px-4 py-2 bg-accent rounded-full text-slate-900 flex items-center gap-1 ${Astro.props.class}`}
+>
+    <slot/>
+    {text}
+</a>
+
+<style>
+
+  a {
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 20%);
+  }
+</style>

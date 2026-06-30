@@ -1,0 +1,14 @@
+---
+
+import { type ToolProps } from '@/lib/definitions'
+
+const { name, level} = Astro.props as ToolProps
+---
+
+<div class="flex flex-col items-center cursor-pointer">
+    <div class="px-2 py-1 w-fit">
+        <slot/>
+    </div>
+    <span>{name}</span>
+    <span class="px-2 py-0.5 bg-slate-50 border-[1px] font-mono text-black text-xs border-slate-400 rounded-full">{level}</span>
+</div>

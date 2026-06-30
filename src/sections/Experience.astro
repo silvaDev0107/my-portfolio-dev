@@ -1,0 +1,21 @@
+---
+import Section from "@/components/Section.astro";
+import ExperienceItem from "@/components/ExperienceItem.astro";
+
+const experience = [
+  {
+    dateStart: "Octubre 2025",
+    dateEnd: "Abril 2026",
+    role: "Frontend Developer React",
+    description:
+      "Construí componentes web siguiendo principios sólidos de UI/UX y buenas practicas de accesibilidad y seguridad, además establecí comunicación con servicios backend por medio de APIs restfull",
+    empresa: "Jarris S.A.S",
+  },
+];
+---
+
+<Section id="experiencia" title="Experiencia">
+  <ol class="relative border-s">
+    {experience.map((item) => <ExperienceItem {...item} />)}
+  </ol>
+</Section>

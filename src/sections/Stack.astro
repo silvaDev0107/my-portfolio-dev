@@ -1,0 +1,64 @@
+---
+import HTML from "@/components/icons/HTML.astro";
+import Tool from "@/components/Tool.astro";
+import CSS from "@/components/icons/CSS.astro";
+import JS from "@/components/icons/JS.astro";
+import Tailwind from "@/components/icons/Tailwind.astro";
+import React from "@/components/icons/React.astro"
+import Nextjs from "@/components/icons/Nextjs.astro"
+
+import Section from "@/components/Section.astro";
+
+const toolsTech = [
+  {
+    id: 1,
+    name: "HTML",
+    level: "Avanzado",
+    icon: HTML,
+  },
+  {
+    id: 2,
+    name: "CSS",
+    level: "Avanzado",
+    icon: CSS,
+  },
+  {
+    id: 3,
+    name: "JS",
+    level: "Avanzado",
+    icon: JS
+  },
+  {
+    id: 4,
+    name: "TailwindCss",
+    level: "Intermedio",
+    icon: Tailwind
+  },
+  {
+    id: 5,
+    name: "React",
+    level: "Intermedio",
+    icon: React
+  },
+  {
+    id: 6,
+    name: "NextJs",
+    level: "Intermedio",
+    icon: Nextjs
+  }
+];
+---
+
+<Section id="stack" title="Stack">
+
+  <div class="w-2xl m-auto grid grid-cols-6">
+    {
+      toolsTech.map((tool) => (
+        <Tool level={tool.level} name={tool.name}>
+          <tool.icon class="size-8"/>
+        </Tool>
+      ))
+    }
+  </div>
+  
+</Section>

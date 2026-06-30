@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import avatarImage from "@/images/avatar.png";
+
+import PointPlace from "@/components/icons/PointPlace.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+---
+
+<section id="home" class="hero pt-30">
+  <div class="hero-container flex justify-between flex-row-reverse">
+    
+    <div class="hero-content w-[925px]">
+      <p class="hero-subtitle">Frontend Developer</p>
+
+      <h1 class="hero-title text-4xl mb-3 font-bold">
+        Hola, soy <strong class="text-accent">Andrés Silva</strong>
+      </h1>
+
+      <p class="hero-description text-lg mb-2">
+        Construyo interfaces modernas, accesibles y optimizadas con React, TypeScript y tecnologías
+        actuales del ecosistema frontend.
+      </p>
+
+      <address class="flex gap-1 items-center mb-2">
+        <PointPlace />
+        Santander, Colombia 🇨🇴
+      </address>
+
+      <div class="hero-actions mt-4">
+        <ButtonLink id="btn-download-cv" text="Download CV" ref="/files/CV - Andrés Silva.pdf" download class="justify-self-start"/>
+      </div>
+    </div>
+
+    
+    <div class="hero-image">
+      <Image
+        width={185}
+        height={185}
+        src={avatarImage}
+        alt="Foto de Andrés Silva desarrollador frontend"
+      />
+    </div>
+  </div>
+</section>
+

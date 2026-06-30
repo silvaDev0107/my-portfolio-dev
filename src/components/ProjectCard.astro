@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import ToolBadge from "./ToolBadge.astro";
+import ButtonLink from "./ButtonLink.astro";
+
+interface ProjectCardProps {
+  title: string;
+  img: any;
+  technologyes: string[];
+  description: string;
+  repo: string;
+}
+
+const { title, img, technologyes, description, repo } = Astro.props as ProjectCardProps;
+---
+
+<aside
+  id="card-project"
+  class="flex flex-col gap-4 items-center p-6 rounded-sm shadow-xs md:flex-row md:max-w-2xl"
+>
+  <Image
+    class="rounded-md w-80 h-90 object-cover object-right"
+    alt={"Imagen de proyecto " + title}
+    src={img}
+  />
+
+  <div class="flex flex-col gap-2 h-full">
+    <h4 class="title text-xl font-semibold self-start">{title}</h4>
+
+    <p class="text-md">{description}</p>
+
+    <div id="technologyes" class="flex gap-2 flex-wrap my-auto">
+      {
+        technologyes.map((tech) => (
+         <ToolBadge tech={tech}/>
+        ))
+      }
+    </div>
+
+    <ButtonLink id="link-codifo" text="Código" ref={repo} class="self-start">
+      <ion-icon name="code-slash-outline"></ion-icon>
+    </ButtonLink>
+  </div>
+</aside>
+
+<style>
+  ion-icon {
+    --ionicon-stroke-width: 40px;
+  }
+
+  aside{
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  aside:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 20%);
+    cursor: pointer;
+  }
+</style>
